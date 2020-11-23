@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <link rel="stylesheet" href="css/index.css">
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>HTML5 개인 포트폴리오 jQuery Mobile</title>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="mportpolio.css"/>
+    <!-- ========================================================================================== -->
+
+    <style>
+	 li { list-style:none; }
+	.picture { list-style:none; padding:0; margin:0; }
+	.picture li { float:left; width:50%;}
+	.picture li a {display:block; margin:5px; border: 1px }
+	.picture li img { display:block; width:50%;  height:auto;}
+	.picture li img:hover { display:block; width:100%;  height:auto;}
+	table {
+			width: 100%;
+			border-collapse: collapse;
+		}
+		th, td {
+			padding: 10px;
+			border:1px solid #000000;
+		}
+</style>
+</head>
+<!-- ================================================================== -->
+<body>
+<div class="app">
+    <div data-theme="b">
+        <div data-role="page" id="home">
+            <div data-role="header" data-theme="b">
+                &nbsp
+                <h1>포트폴리오 앱</h1>
+            </div>
+            <div data-role="content" style="text-align:center">
+                <ul data-role="listview" data-inset="true">
+                    <li><a href="http://118.47.17.58:8888/portfolio.php">페이지이동</a></li>
+                </ul>
+            </div>
+            <div data-role="footer" data-position="fixed" data-theme="b">
+                <h3>동의과학대학교_컴퓨터정보과_유선희</h3>
+                <h6>Copyright &copy; 2020 Yu Seon Hee</h6>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="cordova.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
