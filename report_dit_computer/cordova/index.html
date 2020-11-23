@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+	<meta name="color-scheme" content="light dark">
+	<link rel="stylesheet" href="css/index.css">
+
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>jQuery Mobile</title>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<!-- =================================================================== -->
+	<!-- jqPlot 기본 라이브러리 파일 -->
+	<link rel="stylesheet" href="jqplot/jquery.jqplot.min.css"/>
+	<script src="jqplot/jquery.jqplot.min.js"></script>
+
+	<!-- jqPlot 파이 차트 플러그인 파일 -->
+	<script src="jqplot/plugins/jqplot.pieRenderer.min.js"></script>
+	<!-- <script>
+        $(document).ready(function(){
+        var plot1 = $.jqplot('chartdiv', [[['국내취업',10],['해외취업',10],['진로',10]]], {
+            title: '졸업 후 진로 방향',
+            gridPadding: {top:25, bottom:38, left:0, right:0},
+            seriesDefaults: {
+                renderer:$.jqplot.PieRenderer,
+                rendererOptions: {
+                    padding: 8,
+                    showDataLabels: true
+                }
+            },
+            legend: {
+                show:true,
+                placement: 'outside',
+                rendererOptions: {
+                    numberRows: 1
+                },
+                location:'s',
+                marginTop: '15px'
+            }
+        });
+      });
+    </script> -->
+	<!-- =================================================================== -->
+	<style>
+	   li { list-style:none; }
+	  .picture { list-style:none; padding:0; margin:0; }
+	  .picture li { float:left; width:50%;}
+	  .picture li a {display:block; margin:5px; border: 1px }
+	  .picture li img { display:block; width:50%;  height:auto;}
+	  .picture li img:hover { display:block; width:100%;  height:auto;}
+		table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th, td {
+        padding: 10px;
+        border:1px solid #000000;
+      }
+	</style>
+</head>
+
+<body>
+<!--<div class="app">-->
+<!--	<h1>Apache Cordova</h1>-->
+<!--	<div id="deviceready" class="blink">-->
+<!--		<p class="event listening">Connecting to Device</p>-->
+<!--		<p class="event received">Device is Ready</p>-->
+<!--	</div>-->
+	<div class="app">
+<div data-theme="b">
+	<div data-role="page" id="home">
+		<div data-role="header" data-theme="b">
+			<h1>컴퓨터 정보과 소개 앱</h1>
+		</div>
+		<div data-role="content" style="text-align:center">
+			<img src="computer1.jpg" >
+			<ul data-role="listview" data-inset="true">
+				<a href="http://172.30.1.18:8888/computer.php">페이지이동</a></li>
+			</ul>
+		</div>
+
+
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<h1>동의과학대학교_컴퓨터정보과_유선희</h1>
+		</div>
+	</div>
+
+
+
+</div>
+	</div>
+<script src="cordova.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

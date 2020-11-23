@@ -1,0 +1,211 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>jQuery Mobile</title>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<!-- =================================================================== -->
+<!-- jqPlot 기본 라이브러리 파일 -->
+<link rel="stylesheet" href="jqplot/jquery.jqplot.min.css"/>
+<script src="jqplot/jquery.jqplot.min.js"></script>
+
+<!-- jqPlot 파이 차트 플러그인 파일 -->
+<script src="jqplot/plugins/jqplot.pieRenderer.min.js"></script>
+<!-- <script>
+    $(document).ready(function(){
+    var plot1 = $.jqplot('chartdiv', [[['국내취업',10],['해외취업',10],['진로',10]]], {
+        title: '졸업 후 진로 방향',
+        gridPadding: {top:25, bottom:38, left:0, right:0},
+        seriesDefaults: {
+            renderer:$.jqplot.PieRenderer,
+            rendererOptions: {
+            	padding: 8,
+            	showDataLabels: true
+            }
+        },
+        legend: {
+            show:true,
+            placement: 'outside',
+            rendererOptions: {
+                numberRows: 1
+            },
+            location:'s',
+            marginTop: '15px'
+        }
+    });
+  });
+</script> -->
+<!-- =================================================================== -->
+	<style>
+	   li { list-style:none; }
+	  .picture { list-style:none; padding:0; margin:0; }
+	  .picture li { float:left; width:50%;}
+	  .picture li a {display:block; margin:5px; border: 1px }
+	  .picture li img { display:block; width:50%;  height:auto;}
+	  .picture li img:hover { display:block; width:100%;  height:auto;}
+		table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th, td {
+        padding: 10px;
+        border:1px solid #000000;
+      }
+	</style>
+</head>
+
+<body>
+<div data-theme="b">
+	<div data-role="page" id="home">
+		<div data-role="header" data-theme="b">
+			<h1>컴퓨터 정보과 소개 앱</h1>
+		</div>
+		<div data-role="content" style="text-align:center">
+				<img src="computer1.jpg" >
+			<ul data-role="listview" data-inset="true">
+				<li><a href="#intro">학과소개</a></li>
+				<li><a href="#movie" data-rel="dialog">학과영상</a></li>
+				<li><a href="#employment">졸업 후 진로</a></li>
+				<li><a href="#gallery">학과사진</a></li>
+			</ul>
+		</div>
+<!--
+			<div id="chartdiv"  style="margin:0 auto; height:200px; width:400px; padding-bottom:10%;">	</div> -->
+
+
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<h1>동의과학대학교_컴퓨터정보과_유선희</h1>
+		</div>
+	</div>
+<!-- =============================================================================================================================================== -->
+	<div data-role="page" id="intro" data-theme="b">
+		<div data-role="header" data-theme="b">
+			<a href="#home" data-icon="arrow-l" data-direction="reverse">처음</a>
+			<h1>컴퓨터정보과 소개</h1>
+		</div>
+		<div data-role="content">
+				<div  style="text-align:center">
+					<img src="computer2.jpg" width="30%">
+				</div>
+			<div data-role="collapsible-set" data-theme="b" data-content-theme="e">
+				<div data-role="collapsible" data-collapsed="false">
+					<h3>학과 소개</h3>
+					<p>컴퓨터정보과는 웹 · 모바일앱 · 데이터베이스 · 인공지능 · 사물인터넷 · 클라우드컴퓨팅 등 스마트 IT 산업 분야의 실력있는 소프트웨어 개발 전문가 양성을 목표로 교육하고 있습니다.
+학생들은 웹 및 모바일 앱개발, 프로그래밍 언어, 데이터베이스, 소프트웨어 설계 및 모델링 등 체계적인 이론과 실습을 통하여 기초 능력을 학습하고, 그 바탕 위에서 다양한 팀 프로젝트 통해 심화 학습 및 현장 실무 능력을 키우고 있습니다.</p>
+				</div>
+				<div data-role="collapsible">
+					<h3>교육 과정</h3>
+					<p>컴퓨터정보과는 웹 · 모바일 앱 · 데이터베이스 · 인공지능 · 사물인터넷 · 클라우드 컴퓨팅 등 스마트 IT 산업 분야로 교육과정을 구성하고 있으며 실력 있는 소프트웨어 개발 전문가 양성을 목표로 기본 이론과 팀 프로젝트 수업을 통해 심화 학습 및 학생들의 현장 실무 능력을 키우고 있습니다. 정규과정의 이수체계도와 교육과정표는 다음과 같습니다.</p>
+					<table>
+      <thead>
+        <tr>
+          <th>과목코드</th>
+          <th>학년</th>
+          <th>학기</th>
+					<th>구분</th>
+					<th>과목명</th>
+					<th>학점</th>
+        </tr>
+      </thead>
+      <tbody>
+    <?php
+      $jb_conn = mysqli_connect( 'localhost', 'root', '', 'curriculum' );
+      $jb_sql = "SELECT * FROM detail;";
+      $jb_result = mysqli_query( $jb_conn, $jb_sql );
+      while( $jb_row = mysqli_fetch_array( $jb_result ) ) {
+       echo '<tr> <td>' . $jb_row[ 'code' ] . '</td>
+			            <td>'. $jb_row[ 'grade' ] . '</td>
+									<td>' . $jb_row[ 'term' ] . '</td>
+									<td>' . $jb_row[ 'classify' ] . '</td>
+									<td>' . $jb_row[ 'subject' ] . '</td>
+									<td>' . $jb_row[ 'credit' ] . '</td>
+									</tr>';
+      }
+    ?>
+ </tbody>
+    </table>
+				</div>
+				<div data-role="collapsible" >
+					<h3>학과 시설</h3>
+					<p>학과의 시설은 여섯 개의 컴퓨터 실습실, 프로젝트실, 강의실, 학과 서버실, 학과 회의실, 학과 사무실, 두 개의 동아리실입니. 모든 시설은 무료 와이파이와 냉 난방시설이 갖추어 있고 전망이 좋은 쾌적한 시설입니다.</p>
+				</div>
+			</div>
+		</div>
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<h1>동의과학대학교_컴퓨터정보과_유선희</h1>
+		</div>
+	</div>
+<!-- =============================================================================================================================================== -->
+	<div data-role="page" id="movie" data-theme="b">
+		<div data-role="header" data-position="fixed" data-theme="b">
+			<h1>학과 영상</h1>
+		</div>
+		<div data-role="content" >
+			<div class="ui-bar ui-bar-e">선배인터뷰(공부 잘하는 법)동영상</div><br/>
+			<li><iframe width="100%" height="240" src="https://www.youtube.com/embed/13oiPYeKgOk"></iframe></li><br/>
+			<div class="ui-bar ui-bar-e">2018 Boot Camp 동영상</div><br/>
+			<li><iframe width="100%" height="240" src="https://www.youtube.com/embed/KyohNB0eCMA"></iframe></li><br/>
+		</div>
+		<div data-role="footer" data-theme="b">
+		</div>
+	</div>
+<!-- =============================================================================================================================================== -->
+<div data-role="page" id="employment" data-theme="b">
+	<div data-role="header" data-theme="b">
+		<a href="#home" data-icon="arrow-l" data-direction="reverse">처음</a>
+		<h1>졸업 후 진로</h1>
+	</div>
+	<div data-role="content">
+		<div data-role="collapsible-set" data-theme="b" data-content-theme="e">
+			<div data-role="collapsible" data-collapsed="false" >
+				<h3>졸업 후 진로 방향</h3>
+				<p>국내취업, 해외취업, 편입 가능</p>
+
+			</div>
+			<div data-role="collapsible" >
+				<h3>편입 과정</h3>
+				<p>부경대, 울산대, 동아대, 동의대, 인제대, 홍익대(세종캠퍼스), 동국대(경주캠퍼스) 편입 가능 (자세한 정보는 http://cs.dit.ac.kr/)</p>
+			</div>
+			<div data-role="collapsible">
+				<h3>자격증</h3>
+				<p>정보처리산업기사, 전자계산기조직응용기사, 전자계산기산업기사, 인터넷정보관리사, 리눅스 마스터, 무선인터넷관리사, 썬 공인 자바 프로그래머(SCJP),  썬 공인 자바 프로그래머(SCJD), 썬 공인 자바 웹 컴포넌트 개발자(SCWCD), 썬 공인 솔라리스 시스템 관리자(SCSa), 썬 공인 네트워크 관리자(SCNa)(자세한 정보는 http://www.q-net.or.kr )</p>
+			</div>
+
+		</div>
+	</div>
+
+	<div data-role="footer" data-position="fixed" data-theme="b">
+		<h1>동의과학대학교_컴퓨터정보과_유선희</h1>
+	</div>
+</div>
+
+<!-- =============================================================================================================================================== -->
+	<div data-role="page" id="gallery"  data-theme="b">
+		<div data-role="header" data-position="fixed"  data-theme="b">
+			<a href="#home" data-icon="arrow-l" data-direction="reverse">처음</a>
+			<h1>학과 갤러리</h1>
+		</div>
+		<div data-role="content">
+            <ul class="picture">
+				<li><a href="1.png" rel="external"><img src="1.png" /></a></li>
+				<li><a href="2.png" rel="external"><img src="2.png" /></a></li>
+				<li><a href="3.png" rel="external"><img src="3.png" /></a></li>
+				<li><a href="4.png" rel="external"><img src="4.png" /></a></li>
+				<li><a href="5.png" rel="external"><img src="5.png" /></a></li>
+				<li><a href="6.png" rel="external"><img src="6.png" /></a></li>
+				<li><a href="7.png" rel="external"><img src="7.png" /></a></li>
+				<li><a href="8.png" rel="external"><img src="8.png" /></a></li>
+				<li><a href="9.png" rel="external"><img src="9.png" /></a></li>
+				<li><a href="10.png" rel="external"><img src="10.png" /></a></li>
+            </ul>
+		</div>
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<h1>동의과학대학교_컴퓨터정보과_유선희</h1>
+		</div>
+	</div>
+</div>
+</body>
+</html>
