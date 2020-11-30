@@ -17,6 +17,29 @@
     function vibrate() {
         navigator.vibrate(2000);
     }
+    // onSuccess Callback
+      //   This method accepts a `Position` object, which contains
+      //   the current GPS coordinates
+      //
+      function onSuccess(position) {
+          var element = document.getElementById('geolocation');
+          element.innerHTML = '위도: '  + position.coords.latitude      + '<br />' +
+                              '경도: ' + position.coords.longitude     + '<br />' +
+                              '<hr />'      + element.innerHTML;
+
+      }
+
+      // onError Callback receives a PositionError object
+      //
+      function onError(error) {
+          alert('code: '    + error.code    + '\n' +
+                'message: ' + error.message + '\n');
+      }
+
+      // Options: throw an error if no update is received every 30 seconds.
+      //
+      var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000 });
+      function stop(){navigator.geolocation.clearWatch(watchID);}
     </script>
 
     <style>
@@ -41,11 +64,15 @@
             <button id="" onclick="location.href='http://118.47.17.58:8888/portfolio.php'; vibrate();  return false;">
                                                          <img src="img/intro.png" width="100%" height="100%"></button>
 
+
+
         </div>
         <div data-role="footer" data-position="fixed" data-theme="b" style="text-align:center">
             <h3>동의과학대학교 컴퓨터정보과 유선희</h3>
             <h6>made by 2020 Yu Seon Hee</h6>
         </div>
+        <div id = 'geolocation'></div>
+        <button onclick="stop()">멈춤</button>
     </div>
 </div>
 </body>
