@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>HTML5 개인 포트폴리오 jQuery Mobile</title>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <script type="text/javascript" charset="utf-8">
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    function onDeviceReady() {
+    console.log(navigator.vibrate);
+   }
+    function vibrate() {
+        navigator.vibrate(2000);
+    }
+    </script>
+
+    <style>
+   li { list-style:none; }
+  .picture { list-style:none; padding:0; margin:0; }
+  .picture li { float:left; width:50%;}
+  .picture li a {display:block; margin:5px; border: 1px }
+  .picture li img { display:block; width:50%;  height:auto;}
+  .picture li img:hover { display:block; width:100%;  height:auto;}
+  h2{color: blue;}
+</style>
+</head>
+
+<body>
+<div data-theme="b" style="margin-top:50%">
+    <div data-role="page" id="home">
+        <div data-role="header" data-theme="b" style="text-align:center">
+            <h1>포트폴리오 앱</h1>
+        </div>
+        <div data-role="content" style="text-align:center">
+            <h2>유선희 포트폴리오</h2>
+            <button id="" onclick="location.href='http://118.47.17.58:8888/portfolio.php'; vibrate();  return false;">
+                                                         <img src="img/intro.png" width="100%" height="100%"></button>
+
+        </div>
+        <div data-role="footer" data-position="fixed" data-theme="b" style="text-align:center">
+            <h3>동의과학대학교 컴퓨터정보과 유선희</h3>
+            <h6>made by 2020 Yu Seon Hee</h6>
+        </div>
+    </div>
+</div>
+</body>
+</html>
